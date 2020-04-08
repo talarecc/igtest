@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Liens utiles</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body class="vscode-light">
+        <p>[ ] image du post
+[ ] nombre de like
+[ ] lien du poste
+[ ] createur
+[ ] pouvoir associer à un ou plisuers produits</p>
+<h1 id="liens-utiles">Liens utiles</h1>
+<ul>
+<li><a href="https://developers.facebook.com/">https://developers.facebook.com/</a></li>
+<li><a href="https://developers.facebook.com/docs/instagram-basic-display-api/getting-started">https://developers.facebook.com/docs/instagram-basic-display-api/getting-started</a></li>
+</ul>
+<h1 id="authentication-dans-un-navigateur">Authentication (dans un navigateur)</h1>
+<p><a href="https://api.instagram.com/oauth/authorize?client_id=263923504637698&amp;redirect_uri=https://talarecc.github.io/igtest/&amp;scope=user_profile,user_media&amp;response_type=code">https://api.instagram.com/oauth/authorize?client_id=263923504637698&amp;redirect_uri=https://talarecc.github.io/igtest/&amp;scope=user_profile,user_media&amp;response_type=code</a></p>
+<ul>
+<li><strong>url de test</strong> : <a href="https://talarecc.github.io/igtest/">https://talarecc.github.io/igtest/</a></li>
+<li><strong>ID</strong> : 263923504637698</li>
+<li><strong>secret</strong> : f3f7309ed75d069c7e7a20ba583496b9</li>
+</ul>
+<h2 id="result">result</h2>
+<ul>
+<li><strong>code</strong> : AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw</li>
+</ul>
+<h1 id="echanger-code-contre-access-token-post">Echanger code contre access token (POST) :</h1>
+<p>curl -X POST \ <a href="https://api.instagram.com/oauth/access_token">https://api.instagram.com/oauth/access_token</a> \ -F client_id=684477648739411 \ -F client_secret=eb8c7... \ -F grant_type=authorization_code \ -F redirect_uri=https://socialsizzle.herokuapp.com/auth/ \ -F code=AQDp3TtBQQ...</p>
+<ul>
+<li><strong>client_id</strong> : 263923504637698</li>
+<li><strong>client_secret</strong> : f3f7309ed75d069c7e7a20ba583496b9</li>
+<li><strong>grant_type</strong> : authorization_code</li>
+<li><strong>redirect_uri</strong> : <a href="https://talarecc.github.io/igtest/">https://talarecc.github.io/igtest/</a></li>
+<li><strong>code</strong> : AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw</li>
+</ul>
+<h2 id="result-1">result :</h2>
+<pre><code><code><div>{
+    &quot;access_token&quot;: &quot;IGQVJWY0xWSlJVWlNCWXRpVUxYMzV1QVZAlVnA2TkJOM0NBdUZARYWhCTktJM0Q4VDF6SlAwWDhVLU9iS21mbS00dFlVUTFzTGg2LUhmV3hIVk5tU1F0cHZAwSlFRN3FqY285RzlzaTNiZAGRrVFVBcTdBbjFXaUNsNmNmZAzhV&quot;,
+    &quot;user_id&quot;: 17841429603614101
+}
+</div></code></code></pre>
+<h1 id="echanger-token-contre-un-long-time-access-token">Echanger token contre un long time access token</h1>
+<p>curl -i -X GET &quot;<a href="https://graph.instagram.com/access_token?grant_type=ig_exchange_token&amp;client_secret=%7Binstagram-app-secret%7D&amp;access_token=%7Bshort-lived-access-token%7D">https://graph.instagram.com/access_token?grant_type=ig_exchange_token&amp;client_secret={instagram-app-secret}&amp;access_token={short-lived-access-token}</a>&quot;</p>
+<ul>
+<li><strong>grant_type</strong> : ig_exchange_token</li>
+<li><strong>client_secret</strong> : f3f7309ed75d069c7e7a20ba583496b9</li>
+<li><strong>access_token</strong> : IGQVJWY0xWSlJVWlNCWXRpVUxYMzV1QVZAlVnA2TkJOM0NBdUZARYWhCTktJM0Q4VDF6SlAwWDhVLU9iS21mbS00dFlVUTFzTGg2LUhmV3hIVk5tU1F0cHZAwSlFRN3FqY285RzlzaTNiZAGRrVFVBcTdBbjFXaUNsNmNmZAzhV</li>
+</ul>
+<h2 id="result-2">result</h2>
+<pre><code><code><div>{
+    &quot;access_token&quot;: &quot;IGQVJXUm9BMDViUzVJallGbmR1VmJIT1c3S0FCcDlrLURUcnhqT2FTUXJyWWg3R2lleU5KMHM0WHRCT05EOGZAiQlluT2JmSVZAoZAzRWcVVFOGlRRWNVeWVESjByamRhNUs1cHk4bE5R&quot;,
+    &quot;token_type&quot;: &quot;bearer&quot;,
+    &quot;expires_in&quot;: 5184000
+}
+</div></code></code></pre>
+<h1 id="refresh-a-long-lived-token">Refresh a long-lived token</h1>
+<p>curl -i -X GET &quot;<a href="https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&amp;access_token=%7Blong-lived-access-token%7D">https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&amp;access_token={long-lived-access-token}</a>&quot;</p>
+<ul>
+<li><strong>grant_type</strong> : ig_refresh_token</li>
+<li><strong>access_token</strong> : IGQVJXUm9BMDViUzVJallGbmR1VmJIT1c3S0FCcDlrLURUcnhqT2FTUXJyWWg3R2lleU5KMHM0WHRCT05EOGZAiQlluT2JmSVZAoZAzRWcVVFOGlRRWNVeWVESjByamRhNUs1cHk4bE5R</li>
+</ul>
+<h2 id="result-3">result</h2>
+<pre><code><code><div>{
+  &quot;access_token&quot;:&quot;{long-lived-user-access-token}&quot;,
+  &quot;token_type&quot;: &quot;bearer&quot;,
+  &quot;expires_in&quot;: 5183944 // Number of seconds until token expires
+}
+</div></code></code></pre>
+<h1 id="url-dinterrogation-du-noeud-utilisateur-get">Url d'interrogation du noeud utilisateur (GET) :</h1>
+<p>curl -X GET \ '<a href="https://graph.instagram.com/%7Buser-id%7D?fields=id,username,media_count&amp;access_token=%7Baccess-token%7D">https://graph.instagram.com/{user-id}?fields=id,username,media_count&amp;access_token={access-token}</a>'
+curl -X GET \ '<a href="https://graph.instagram.com/17841429603614101?fields=id,username,media_count&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw">https://graph.instagram.com/17841429603614101?fields=id,username,media_count&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw</a>'</p>
+<h2 id="result-4">result :</h2>
+<pre><code><code><div>{
+    &quot;id&quot;: &quot;17841429603614101&quot;,
+    &quot;username&quot;: &quot;rark_twitch&quot;,
+    &quot;media_count&quot;: 5
+}
+</div></code></code></pre>
+<h1 id="get-media-id-get">Get media id (GET) :</h1>
+<p><a href="http://api.instagram.com/oembed?url=http://instagram.com/p/B-XMwrFIVnc/">http://api.instagram.com/oembed?url=http://instagram.com/p/B-XMwrFIVnc/</a></p>
+<ul>
+<li><strong>url</strong> : lien du post instagram</li>
+</ul>
+<h2 id="result-5">result :</h2>
+<pre><code><code><div>{
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;title&quot;: &quot;PB APRÈS PB, WR APRÈS WR. 🏅&quot;,
+    &quot;author_name&quot;: &quot;rark_twitch&quot;,
+    &quot;author_url&quot;: &quot;https://www.instagram.com/rark_twitch&quot;,
+    &quot;author_id&quot;: 29552810787,
+    &quot;media_id&quot;: &quot;2276344258009061852_29552810787&quot;,
+    &quot;provider_name&quot;: &quot;Instagram&quot;,
+    &quot;provider_url&quot;: &quot;https://www.instagram.com&quot;,
+    &quot;type&quot;: &quot;rich&quot;,
+    &quot;width&quot;: 658,
+    &quot;height&quot;: null,
+    &quot;html&quot;: &quot;html&quot;,
+    &quot;thumbnail_url&quot;: &quot;https://instagram.fcdg1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/91473080_870207096752692_5577804207658831461_n.jpg?_nc_ht=instagram.fcdg1-1.fna.fbcdn.net&amp;_nc_cat=104&amp;_nc_ohc=wnHnGqcA7rkAX_ouNXm&amp;oh=25e514b785d5e8a445acf8a1dd82f80b&amp;oe=5EB65F91&quot;,
+    &quot;thumbnail_width&quot;: 640,
+    &quot;thumbnail_height&quot;: 640
+}
+</div></code></code></pre>
+<h1 id="url-dinterrogation-de-media-get">Url d'interrogation de media (GET) :</h1>
+<p>curl -X GET \ '<a href="https://graph.instagram.com/%7Bmedia-id%7D?fields=%7Bfields%7D&amp;access_token=%7Baccess-token%7D">https://graph.instagram.com/{media-id}?fields={fields}&amp;access_token={access-token}</a>}'
+curl -X GET \ '<a href="https://graph.instagram.com/2276344258009061852_29552810787?fields=id,media_type,media_url,username,timestamp&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw">https://graph.instagram.com/2276344258009061852_29552810787?fields=id,media_type,media_url,username,timestamp&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw</a>'
+curl -X GET \ '<a href="https://graph.facebook.com/2276344258009061852_29552810787?fields=id,media_type,media_url,username,timestamp&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw">https://graph.facebook.com/2276344258009061852_29552810787?fields=id,media_type,media_url,username,timestamp&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw</a>'
+curl -X GET \ '<a href="https://graph.instagram.com/2276344258009061852_29552810787?fields=id,media_type,media_url,username,timestamp&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw">https://graph.instagram.com/2276344258009061852_29552810787?fields=id,media_type,media_url,username,timestamp&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw</a>'</p>
+<p>&quot;<a href="https://graph.facebook.com/v3.2/2276344258009061852_29552810787?fields=username&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw">https://graph.facebook.com/v3.2/2276344258009061852_29552810787?fields=username&amp;access_token=AQAfvACPkBX6xoppB-3lFXsoBHNbvLjQfIl0pXzXR2UZoCIdsk6VK8QHpLEOluwj8Oeu054Gd0-sE9uXRhKsDODxw0Fu_SC8K7sgxOEo9Vzm3wqhp5LSnOtgXWMReuGacuJ4V2_r7gsyZykqVIosoe8AEPNrEeoc9Wgm2o9gRwRYw5H01kBLSKoTHJqq6Zgc-P7SrqNLP78sFqOWL1DAPko_f832JwUSL_fsL_jZ4td-Bw</a>&quot;</p>
+<h1 id="get-all-media-get">Get all media (GET)</h1>
+<p><a href="https://graph.instagram.com/me/media?fields=id,media_type,media_url,username,timestamp&amp;access_token=IGQVJWY0xWSlJVWlNCWXRpVUxYMzV1QVZAlVnA2TkJOM0NBdUZARYWhCTktJM0Q4VDF6SlAwWDhVLU9iS21mbS00dFlVUTFzTGg2LUhmV3hIVk5tU1F0cHZAwSlFRN3FqY285RzlzaTNiZAGRrVFVBcTdBbjFXaUNsNmNmZAzhV">https://graph.instagram.com/me/media?fields=id,media_type,media_url,username,timestamp&amp;access_token=IGQVJWY0xWSlJVWlNCWXRpVUxYMzV1QVZAlVnA2TkJOM0NBdUZARYWhCTktJM0Q4VDF6SlAwWDhVLU9iS21mbS00dFlVUTFzTGg2LUhmV3hIVk5tU1F0cHZAwSlFRN3FqY285RzlzaTNiZAGRrVFVBcTdBbjFXaUNsNmNmZAzhV</a></p>
+<ul>
+<li><strong>fields</strong> : id,mediatype,media_url,username,timestamp</li>
+<li><strong>access_token</strong> : IGQVJWY0xWSlJVWlNCWXRpVUxYMzV1QVZAlVnA2TkJOM0NBdUZARYWhCTktJM0Q4VDF6SlAwWDhVLU9iS21mbS00dFlVUTFzTGg2LUhmV3hIVk5tU1F0cHZAwSlFRN3FqY285RzlzaTNiZAGRrVFVBcTdBbjFXaUNsNmNmZAzhV</li>
+</ul>
+<h2 id="result-6">result</h2>
+<pre><code><code><div>{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;17859819646794796&quot;,
+            &quot;media_type&quot;: &quot;IMAGE&quot;,
+            &quot;media_url&quot;: &quot;https://scontent.fcdg1-1.fna.fbcdn.net/v/t51.2885-15/91473080_870207096752692_5577804207658831461_n.jpg?_nc_cat=109&amp;_nc_sid=8ae9d6&amp;_nc_oc=AQmL62Oyq2-RUYWxoOUAqU2YiHuX3EqG3N76m1MGpCf-regCOI_T5A10WBRYch8qUE8&amp;_nc_ht=scontent.fcdg1-1.fna&amp;oh=4b0e60826ce4c6debe0508b017015b77&amp;oe=5EB24309&quot;,
+            &quot;username&quot;: &quot;rark_twitch&quot;,
+            &quot;timestamp&quot;: &quot;2020-03-30T15:16:43+0000&quot;
+        },
+        {
+            &quot;id&quot;: &quot;17852971849811878&quot;,
+            &quot;media_type&quot;: &quot;IMAGE&quot;,
+            &quot;media_url&quot;: &quot;https://scontent.fcdg1-1.fna.fbcdn.net/v/t51.2885-15/84256140_2227551500874046_5747565521381721533_n.jpg?_nc_cat=100&amp;_nc_sid=8ae9d6&amp;_nc_oc=AQnh9LcTU-s4PVSZVZ018p6LOxXCBRQiOYfmPw6YZI_SnVeMXu6ANBj_1azMH8uq9NM&amp;_nc_ht=scontent.fcdg1-1.fna&amp;oh=a87307df4de4095f668296a4cf0c813e&amp;oe=5EB24FBA&quot;,
+            &quot;username&quot;: &quot;rark_twitch&quot;,
+            &quot;timestamp&quot;: &quot;2020-02-05T07:52:56+0000&quot;
+        }
+    ],
+    &quot;paging&quot;: {
+        &quot;cursors&quot;: {
+            &quot;before&quot;: &quot;QVFIUmZA4WnNUOXU3R0xWbU5RU0VuQklVUENwWnNrYmhzSlFNM2lnX1Etb3o3alRLYkt2QXc4N2YxWi0zUzg1MDNkdm13YnVaaEF5WGY2ZAGRMWW1qcHNFa1hR&quot;,
+            &quot;after&quot;: &quot;QVFIUl9veTlIdjhWUng5djExQXVzZAW1iaWZA1ZAnBpa2o4bjdMT2txa2lDR3JYN0FPbHF1QTJsOHhtdnk4X3NmVDBvNE13TlBndE5BQ2VzU1pGMS1kdGhLeXN3&quot;
+        }
+    }
+}  
+</div></code></code></pre>
+
+    </body>
+    </html>
